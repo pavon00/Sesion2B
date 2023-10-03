@@ -25,12 +25,14 @@ public class Empleado {
 	}
 	
 	public float calculoNominaNeta(float nominaBruta) {
+		float retencion = 0;
 		if (nominaBruta<2100) {
 			return nominaBruta;
 		}else if (nominaBruta>=2100 && nominaBruta<2500) {
-			
+			retencion = nominaBruta*0.15f;
 		}else if (nominaBruta>=2500) {
-			
+			retencion = nominaBruta*0.18f;
 		}
+		return nominaBruta*(1-retencion);
 	}
 }
