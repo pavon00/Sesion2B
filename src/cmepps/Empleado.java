@@ -5,7 +5,7 @@ public class Empleado {
 		Vendedor, Encargado
 	}
 
-	public float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
+	public static float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
 		float salarioBase = 0;
 		if (tipo.equals(TipoEmpleado.Vendedor)) {
 			salarioBase = 2000;
@@ -24,14 +24,12 @@ public class Empleado {
 		return salarioBase;
 	}
 	
-	public float calculoNominaNeta(float nominaBruta) {
+	public static float calculoNominaNeta(float nominaBruta) {
 		float retencion = 0;
-		if (nominaBruta<2100) {
-			return nominaBruta;
-		}else if (nominaBruta>=2100 && nominaBruta<2500) {
-			retencion = nominaBruta*0.15f;
-		}else if (nominaBruta>=2500) {
+		if (nominaBruta>2500) {
 			retencion = nominaBruta*0.18f;
+		}else if (nominaBruta>=2100) {
+			retencion = nominaBruta*0.15f;
 		}
 		return nominaBruta*(1-retencion);
 	}
